@@ -23,3 +23,12 @@ b.value()
 b.value()
 
 
+# 应用 按钮按下灯亮
+
+
+while 1:
+    if b.value():
+        l.value(1)
+    else:
+        l.value(0)
+
