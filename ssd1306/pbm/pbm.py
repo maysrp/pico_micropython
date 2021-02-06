@@ -20,4 +20,4 @@ def savePBM(filename,x=128,y=64):
     return False
 
 
-savePBM("a.jpg",86,64)
+savePBM("b.jpg",86,64)
