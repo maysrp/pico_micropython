@@ -1,5 +1,4 @@
 from hcsr04 import HCSR04
-import time
 sensor = HCSR04(trigger_pin=0, echo_pin=1)
 
 
@@ -8,8 +7,5 @@ sensor = HCSR04(trigger_pin=0, echo_pin=1)
 #GND--- GND
 #Trig--- 0
 #echo--- 1
-
-while True:
-    m=sensor.distance_cm()
-    print("Juli:",m,"cm")
-    time.sleep(1)
+sensor.distance_cm()
+sensor.distance_mm()
