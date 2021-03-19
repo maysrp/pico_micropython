@@ -1,14 +1,22 @@
+# PCA9685
 
-DEPRECATED LIBRARY micropython-adafruit-pca9685
-===============================================
+http://micropython-pca9685.readthedocs.io/
 
-This library has been deprecated! We are leaving this up for historical and research purposes but archiving the repository.
+## 使用接线
+|pico|PCA9685|
+|-|-|
+|3v3 OUT|VCC|
+|GND|GND|
+|GPIO0|SDA|
+|GPIO1|SCL|
 
-We are only supporting CircuitPython libraries.
 
-Check out this library for using PCA9685 with Python on microcontrollers: https://github.com/adafruit/Adafruit_CircuitPython_PCA9685
+#PCA 9685
+#0-15为外接舵机
+#外接5V电源
+#黄色 数据
+#红色 5V
+直接插入舵机线即可
 
 
-Micropython driver for 16-channel, 12-bit PWM chip the pca9685
-
-Full documentation at http://micropython-pca9685.readthedocs.io/
+具体可以查看main.py
