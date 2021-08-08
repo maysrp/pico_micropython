@@ -1,26 +1,18 @@
 import time
-from neopixel import Neopixel
+import ws2812b
 import random
 
-numpix = 60  # Number of NeoPixels
+numpix = 50  # Number of NeoPixels
 # Pin where NeoPixels are connected
-strip = Neopixel(numpix, 1, 1, "GRB")
+strip = ws2812b.ws2812b(numpix, 0,0)
 
-colors_rgb = [
-    (232, 100, 255),  # Purple
-    (200, 200, 20),  # Yellow
-    (30, 200, 200),  # Blue
-    (150,50,10),
-    (50,200,10),
+colors = [
+    [232, 100, 255],  # Purple
+    [200, 200, 20],  # Yellow
+    [30, 200, 200],  # Blue
+    [150,50,10],
+    [50,200,10],
 ]
-
-# same colors as normaln rgb, just 0 added at the end
-colors_rgbw = [color+tuple([0]) for color in colors_rgb]
-colors_rgbw.append((0, 0, 0, 255))
-
-# uncomment colors_rgbw if you have RGBW strip
-colors = colors_rgb
-# colors = colors_rgbw
 
 max_len=20
 min_len = 5
@@ -35,7 +27,7 @@ for i in range(num_flashes):
     flash_len = random.randint(min_len, max_len)
     flashing.append([pix, colors[col], flash_len, 0, 1])
     
-strip.fill((0,0,0))
+strip.fill(0,0,0)
 
 while True:
     strip.show()
@@ -46,7 +38,7 @@ while True:
         colr = (int(flashing[i][1][0]*brightness), 
                 int(flashing[i][1][1]*brightness), 
                 int(flashing[i][1][2]*brightness))
-        strip.set_pixel(pix, colr)
+        strip.set_pixel(pix, colr[0], colr[1], colr[2])
 
         if flashing[i][2] == flashing[i][3]:
             flashing[i][4] = -1

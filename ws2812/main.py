@@ -1,8 +1,7 @@
-from neopixel import Neopixel
-pixels = Neopixel(1, 0, 0, "GRB")
-
-# 10个灯 状态 使用GPIO0  使用RGB（GRB）
-# 从0开始
-
-pixels.set_pixel(5, (10, 0, 0))
-pixels.set_pixel_line(5, 7, (0, 10, 0))
+import ws2812b
+pixels = ws2812b.ws2812b(10,0,0)
+#设置10个RGB灯
+pixels.set_pixel(5,10,0,0)
+pixels.set_pixel_line(5,7,0,10,0)
+pixels.fill(20,5,0)
+pixels.show()
